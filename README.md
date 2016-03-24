@@ -44,6 +44,7 @@ Setting up Envs
 rhc env set DB_NAME=value -a api
 rhc env set DB_USER=value -a api
 rhc env set DB_PASSWORD=value -a api
+rhc env set DJANGO_SETTINGS_MODULE=settings.prod -a api
 
 Checking Envs
 rhc env list -a api
