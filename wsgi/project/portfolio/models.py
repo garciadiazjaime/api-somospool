@@ -4,6 +4,7 @@ from django.db import models
 
 class Category(models.Model):
     name = models.CharField(max_length=150)
+    order = models.IntegerField(null=True, blank=True, default=1)
 
     def __unicode__(self):
         return "%s" % (self.name)
@@ -18,20 +19,22 @@ class Project(models.Model):
     title = models.CharField(max_length=120)
     subtitle = models.CharField(max_length=120)
     categories = models.ManyToManyField(Category)
+    order = models.IntegerField(null=True, blank=True, default=1)
     status = models.CharField(choices=STATUS_TYPES, default='CREATED', max_length=20)
+    cover = models.URLField(max_length=500, default='')
 
     def __unicode__(self):
 		return "%s" % (self.title)
 
 class Block(models.Model):
     BLOCK_TYPES = (
-        ('COVER', 'COVER'),
+        ('IMAGE', 'IMAGE'),
         ('INTRO', 'INTRO'),
         ('DESCRIPTION', 'DESCRIPTION'),
-        ('IMAGE', 'IMAGE'),
     )
-    type = models.CharField(choices=BLOCK_TYPES, default='COVER', max_length=20)
+    type = models.CharField(choices=BLOCK_TYPES, default='IMAGE', max_length=20)
     content = models.TextField(null=True, blank=True)
+    order = models.IntegerField(null=True, blank=True, default=1)
     project = models.ForeignKey(Project)
 
     def __unicode__(self):
