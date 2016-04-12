@@ -29,8 +29,10 @@ class Project(models.Model):
 class Block(models.Model):
     BLOCK_TYPES = (
         ('IMAGE', 'IMAGE'),
+        ('DESCRIPTION', 'DESCRIPTION'),
     )
     type = models.CharField(choices=BLOCK_TYPES, default='IMAGE', max_length=20)
+    text = models.TextField(null=True, blank=True, default='')
     order = models.IntegerField(null=True, blank=True, default=1)
     project = models.ForeignKey(Project)
 
