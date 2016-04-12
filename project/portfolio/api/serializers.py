@@ -8,14 +8,14 @@ class CategorySerializer(serializers.HyperlinkedModelSerializer):
     model = Category
     fields = ('id', 'name', 'order')
 
-class ProjectSerializer(serializers.HyperlinkedModelSerializer):
-	class Meta:
-		model = Project
-		fields = ('id', 'title', 'subtitle', 'order', 'status', 'cover', 'categories')
+class ProjectSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Project
+        fields = ('id', 'title', 'subtitle', 'order', 'status', 'cover', 'categories')
 
 class BlockSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Block
         depth = 1
         many = True
-        fields = ('id', 'type', 'order', 'image_set')
+        fields = ('id', 'type', 'text', 'order', 'image_set')
