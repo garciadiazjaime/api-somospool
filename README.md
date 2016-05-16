@@ -33,3 +33,18 @@ Deploy project
 `git status`
 `git diff`
 `fab deploy`
+
+Login rch
+setup -l setup email
+
+Remove Cartridge
+http://stackoverflow.com/questions/31323791/how-do-you-delete-a-database-cartridge-on-an-openshift-app
+
+Setting up Envs
+rhc env set DB_NAME=value -a api
+rhc env set DB_USER=value -a api
+rhc env set DB_PASSWORD=value -a api
+rhc env set DJANGO_SETTINGS_MODULE=settings.prod -a api
+
+Checking Envs
+rhc env list -a api
