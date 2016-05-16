@@ -30,6 +30,15 @@ class Block(models.Model):
     BLOCK_TYPES = (
         ('IMAGE', 'IMAGE'),
         ('DESCRIPTION', 'DESCRIPTION'),
+        ('TEXT', 'TEXT'),
+        ('SLIDER', 'SLIDER'),
+        ('IMAGE_IMAGE', 'IMAGE_IMAGE'),
+        ('IMAGE_TEXT', 'IMAGE_TEXT'),
+        ('TEXT_IMAGE', 'TEXT_IMAGE'),
+        ('SLIDER_TEXT', 'SLIDER_TEXT'),
+        ('TEXT_SLIDER', 'TEXT_SLIDER'),
+        ('SLIDER_IMAGE', 'SLIDER_IMAGE'),
+        ('IMAGE_SLIDER', 'IMAGE_SLIDER'),
     )
     type = models.CharField(choices=BLOCK_TYPES, default='IMAGE', max_length=20)
     text = models.TextField(null=True, blank=True, default='')
