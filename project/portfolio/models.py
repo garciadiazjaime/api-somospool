@@ -28,6 +28,7 @@ class Project(models.Model):
 
 class Block(models.Model):
     BLOCK_TYPES = (
+        ('INTRO', 'INTRO'),
         ('IMAGE', 'IMAGE'),
         ('DESCRIPTION', 'DESCRIPTION'),
         ('TEXT', 'TEXT'),
